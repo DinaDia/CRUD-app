@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { loadEmployeeStart } from "../action/Actions";
+import { loadEmployeeStart, deleteEmployeeStart } from "../action/Actions";
 import {css} from '@emotion/css';
-
-
+import {Link} from 'react-router-dom';
 
 const EmployeeList = () => {
+  
     const dispatch=useDispatch();
     const {Employees}=useSelector(state=>state.data);
+
 
     useEffect(()=>{
         dispatch(loadEmployeeStart());
@@ -15,218 +16,161 @@ const EmployeeList = () => {
     }, []);
 
     const deleteEmployee=(id)=> {
-
+      if(window.confirm("Confirm you want to delete this entry")){
+        dispatch(deleteEmployeeStart(id));
+        window.location.reload(false);
+          
+      }
     }
   return (
 
-    <div>
-
-<div className={css`
-        margin-top:75px;
-        margin-left:120px;
-         `}>
-
-          <div className={css `
+    <div className={css` margin-top:75px;
+    margin-left:75px;`}>
+      <table style={{borderCollapse :'collapse'}}>
+        <thead >
+          <tr>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 25px;
-            padding: 7px 15px 7px 15px;
-            `}>ID</div>
-
-            <div className={css `
+            padding:6px;border:2px solid white;`} >ID</th>
+            <th  className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 100px;
-            padding: 7px 15px 7px 15px;
-            `}>First Name</div>
-            
-          <div className={css `
+            padding:6px; border:2px solid white;`} >First Name</th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 100px;
-            padding: 7px 15px 7px 15px;
-            `}>Last Name</div>
-
-
-            <div className={css `
+            padding:6px; border:2px solid white;`} >Last Name</th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 135px;
-            padding: 7px 15px 7px 15px;
-            `}>Phone Number</div>
-
-          <div className={css `
+            padding:6px; border:2px solid white;`} >Phone Number</th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            font-weight:bold;
-            float: left;
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 135px;
-            padding: 7px 15px 7px 15px;
-            `}>Email </div>
-
-
-          <div className={css `
+            padding:6px; border:2px solid white;`} >Email </th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 50px;
-            padding: 7px 15px 7px 15px;
-            `}>Gender</div>
-
-          <div className={css `
+            padding:6px; border:2px solid white;`} >Department</th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left; 
-            font-weight:bold;
-            border: 1px solid #ADD8E6;
-            text-align:center;
-            width: 135px;
-            padding: 7px 15px 7px 15px;
-            `}>Department</div>
-
-            <div className={css `
+            padding:6px; border:2px solid white;`} ></th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            color:black; 
-            float: left; 
-            width: 135px; 
-            height: 4px;
-            border: 1px solid #ADD8E6;
-            padding: 20px 0px 11px 0px;
-            `}> </div>
-
-            <div className={css `
+            padding:6px; border:2px solid white;`} ></th>
+            <th className={css `text-align:'center';
             background-color: #99BDD9;
-            border: 1px solid #ADD8E6; 
-            width: 135px; 
-            height: 4px;
-            float: left; 
-            padding: 20px 0px 12px 0px;
-            `}></div>
-      </div>
+            padding:6px; border:2px solid white;`} ></th>
 
+          </tr>
+      </thead>
 
+      <tbody className={css`margin-left:50px;`}>
       {Employees && 
-        Employees.map((employee, index)=>(
-            
-        <div  className={css`
-        margin-top:75px;
-        margin-left:120px;
-        border: 1px solid #ADD8E6;
-        `}>
-          {index+1}
-
-        <div className={css `
-            background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            text-align:center;
-            width: 25px;
-            padding: 7px 15px 7px 15px;
-            `} >{employee.id}</div>
-
-        <div className={css `
-            background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            text-align:center;
-            width: 100px;
-            padding: 7px 15px 7px 15px;
-            `}>{employee.firstName}</div>
-
-        <div className={css `
-            background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            text-align:center;
-            width: 100px;
-            padding: 7px 15px 7px 15px;
-            `}>{employee.lastName}</div>
-
-        <div  className={css `
-            background-color: #99BDD9;
-            color:black; 
-            float: left;
-            font-weight:bold;
-            text-align:center;
-            width: 135px;
-            padding: 7px 15px 7px 15px;
-            `}>{employee.phone}</div>
-
-        <div className={css `
-            background-color: #99BDD9;
-            color:black; 
-            font-weight:bold;
-            float: left;
-            font-weight:bold;
-            text-align:center;
-            width: 135px;
-            padding: 7px 15px 7px 15px;
-            `}>{employee.email}</div>
-
-        <div className={css `
-            background-color: #99BDD9;
-            color:black; 
-            float: left; 
-            font-weight:bold;
-            text-align:center;
-            width: 135px;
-            padding: 7px 15px 7px 15px;
-            `}>{employee.department}</div>
-            
-            
-            <div className={css `
-            background-color: #99BDD9;
-            color:black; 
-            float: left; 
-            width: 135px; 
-            height: 4px;
-            padding: 20px 0px 11px 0px;
+        Employees.map((employee, id)=>(
+          <tr key={id}>
+            <td className={css `
+            width:75px;
+            text-align: center;
+            background-color:#f0f7fa;
+            border:2px solid white`}>{employee.id}</td>
+            <td className={css `
+            width:130px;
+            background-color:#f0f7fa;
+            text-align: center;
+            border:2px solid white;`}>{employee.firstName}</td>
+            <td className={css `
+            width:130px;
+            background-color:#f0f7fa;
+            text-align: center;
+            border:2px solid white;`}>{employee.lastName}</td>
+            <td className={css `
+            width:200px;
+            text-align: center;
+            background-color:#f0f7fa;
+            border:2px solid white;`}>{employee.phone}</td>
+            <td className={css `
+            width:250px;
+            text-align: center;
+            background-color:#f0f7fa;
+            border:2px solid white;
+            `}>{employee.email}</td>
+            <td className={css `
+            width:175px;
+            background-color:#f0f7fa;
+            text-align: center;
+            border:2px solid white;`}>{employee.department}</td>
+            <td className={css `
+            width:75px;
+            text-align: center;
+            background-color:#f0f7fa;
+            border:2px solid white;
             `}>
-              <button>Edit</button>
-               </div>
-            
-        
-        <div className={css `
-            background-color: #99BDD9;
-            width: 135px; 
-            height: 4px;
-            float: left; 
-            padding: 20px 0px 12px 0px;
+              <button className={css `
+              background-color: #90A1C8;
+              color:white;
+              border:none;
+              text-align:center;
+              padding: 7px 14px 7px 14px;
+              &:hover {
+                opacity: 0.4;
+                cursor: pointer;
+              }
+              `} >
+                <Link style={{color:'white', textDecoration:'none',}}
+                to={`/EmployeeInfo/${employee.id}`}>View</Link>
+                </button>
+            </td>            
+            <td className={css `
+            width:75px;
+            text-align: center;
+            background-color:#f0f7fa;
+            border:2px solid white;
             `}>
-              <button onClick={()=>deleteEmployee(employee.id)}>Delete</button>
-            </div>
-         
-    </div>
+              <button className={css `
+              background-color: #9084AE;
+              color:white;
+              border:none;
+              text-align:center;
+              padding: 7px 14px 7px 14px;
+              &:hover {
+                opacity: 0.4;
+                cursor: pointer;
+              }
+              `} >
+                <Link style={{color:'white', textDecoration:'none',}}
+                to={`/EditEmployee/${employee.id}`}>Edit</Link>
+                </button>
+            </td>
+            <td className={css `
+            width:75px;
+            text-align: center;
+            background-color:#f0f7fa;
+            border:2px solid white;
+            padding:5px;`}>
+              <button className={css `
+            background-color:  #c70000;
+            color:white;
+            border:none;
+            text-align:center;
+            padding: 7px 12px 7px 12px;
+            &:hover {
+              opacity: 0.4;
+              cursor: pointer;
+            }
+            `} 
+            onClick={()=>deleteEmployee(employee.id)}
+            >Delete</button>
+            </td>
+          </tr>
+       
+
+
+      
+     
+     
         ))}
 
-
-       
-    </div> 
+        </tbody>
+        
+        </table>
+                     
+        </div> 
   )
 }
 export default  EmployeeList;
