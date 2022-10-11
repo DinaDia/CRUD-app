@@ -44,9 +44,9 @@ export function* onDeleteEmployeeStartAsync(employeeId){
 }
 
 
-export function* onEditEmployeeStartAsync({payload: {id, changedValues}}){
+export function* onEditEmployeeStartAsync({payload: {id, changedValue}}){
     try{
-        const response=yield call(editEmployeeApi, id, changedValues);
+        const response=yield call(editEmployeeApi, id, changedValue);
     if(response.status===200){
         yield put(editEmployeeSuccess());
 

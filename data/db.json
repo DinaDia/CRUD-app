@@ -2,12 +2,11 @@
   "employees": [
     {
       "id": 1,
-      "firstName":" Lillith",
-      "lastName":"Willkinson",
+      "firstName": " Lillith",
+      "lastName": "Willkinson",
       "phone": "9-999-822-6181",
-      "email":"a/mangna@yahoo.com",
-      "department":"Public Relations"
-
+      "email": "a/mangna@yahoo.com",
+      "department": "Public Relations"
     },
     {
       "id": 2,
@@ -42,8 +41,8 @@
       "id": 5
     },
     {
-      "firstName": " Malik",
-      "lastName": " Wooten",
+      "firstName": "Mark",
+      "lastName": "Wooten",
       "phone": " 072-453-8758",
       "email": "urna.nec@protonmail.edu",
       "department": " Research and Development",
