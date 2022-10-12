@@ -33,20 +33,29 @@
       "department": "Asset Management"
     },
     {
+      "id": 5,
       "firstName": " Illiana",
       "lastName": " Soto",
       "phone": " 014-545-7076",
       "email": "at.fringilla.purus@outlook.net",
-      "department": " Quality Assurance",
-      "id": 5
+      "department": " Quality Assurance"
     },
     {
+      
+      "id": 6,
       "firstName": "Mark",
       "lastName": "Wooten",
       "phone": " 072-453-8758",
       "email": "urna.nec@protonmail.edu",
-      "department": " Research and Development",
-      "id": 6
+      "department": " Research and Development"
+    },
+    {
+      "id":7,
+      "firstName":"Mikayla",
+      "lastName":"Colon",
+      "phone":"1-666-925-1672",
+      "email":"cursus.et@protonmail.ca",
+      "department":"Asset Management"
     }
   ]
 }
