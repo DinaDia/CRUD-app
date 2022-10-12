@@ -26,6 +26,7 @@ const EmployeeList = () => {
 
     <div className={css` margin-top:75px;
     margin-left:75px;`}>
+
       <table style={{borderCollapse :'collapse'}}>
         <thead >
           <tr>

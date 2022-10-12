@@ -64,7 +64,7 @@ const EditEmployee = () => {
     <input  className={css ` height:25px; width: 250px; color:black;  border: 1px solid #f1f1f1;`}
         type='text'
         name='firstName'
-        value={firstName  || "" }
+        value={firstName }
     onChange={changeData}
     />
     <br/>
@@ -74,7 +74,7 @@ const EditEmployee = () => {
        
         type='text'
         name='lastName'
-       value={lastName || ""}
+       value={lastName}
        onChange={changeData}
       />
       <br/>
@@ -84,7 +84,7 @@ const EditEmployee = () => {
       <input className={css `height:25px; width: 250px; border: 1px solid #f1f1f1;`}
        type='tel'
        name='phone'
-       value={phone || ""}
+       value={phone}
        onChange={changeData}      
        />
       <br/>
@@ -94,7 +94,7 @@ const EditEmployee = () => {
       <input className={css `height:25px; width: 250px; border: 1px solid #f1f1f1;`}
        type='email'
        name='email'
-       value={email || ""}
+       value={email}
        onChange={changeData}
       />
       <br/>
@@ -105,7 +105,7 @@ const EditEmployee = () => {
       <input className={css `height:25px; width: 250px;  border: 1px solid #f1f1f1; `} 
        type='text'
        name='department'
-       value={department || ""}
+       value={department}
        onChange={changeData}
       /> 
       <br/> 
